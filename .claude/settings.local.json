@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open \"/Users/samanthaandrada/Documents/Claude/Projects/Photography + UGC Portfolio/hero-experiment.html\")",
+      "Bash(python3 -c ' *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:8765/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8765/photography-videos/)",
+      "Bash(curl -s http://localhost:8765/photography-videos/)",
+      "Bash(lsof -i :8766 -sTCP:LISTEN)"
+    ]
+  }
+}

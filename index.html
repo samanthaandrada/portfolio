@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samantha Andrada | Creative that travels.</title>
+  <meta name="description" content="Samantha Andrada — photographer, UGC creator, and social media strategist based wherever the light is good.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400;1,9..144,700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --sidecar:      #F7E6CB;
+      --jelly-bean:   #25799B;
+      --sinbad:       #A2C5D8;
+      --milan-red:    #CB1B03;
+      --charcoal:     #1A1816;
+      --white:        #FFFFFF;
+    }
+
+    body {
+      font-family: 'Syne', sans-serif;
+      background: var(--sidecar);
+      color: var(--charcoal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Grain texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9990;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+    }
+
+    /* NAV */
+    nav {
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--jelly-bean);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--jelly-bean);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      opacity: 0.6;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 4rem;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 860px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-decoration: none;
+      color: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 2px 12px rgba(26,24,22,0.06);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26,24,22,0.12);
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--jelly-bean);
+    }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      opacity: 0.6;
+      flex: 1;
+    }
+
+    .card-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-top: 0.5rem;
+      transition: gap 0.2s;
+    }
+
+    .card:hover .card-arrow { gap: 0.7rem; }
+
+    .card-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--jelly-bean);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-accent { transform: scaleX(1); }
+
+    .card.social .card-accent { background: var(--milan-red); }
+    .card.social .card-tag { color: var(--milan-red); }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 2.5rem;
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.4;
+      letter-spacing: 0.05em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; max-width: 420px; }
+      /* Stack logo above links so narrow phones (~320-410px) don't clip "Contact" off-screen */
+      nav { padding: 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Samantha Andrada</a>
+    <ul class="nav-links">
+      <li><a href="photography-videos/">Photography</a></li>
+      <li><a href="social-media/">Social Media</a></li>
+      <li><a href="mailto:s.k.andrada@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="hero">
+    <p class="hero-eyebrow">Creative that travels</p>
+    <h1 class="hero-title">
+      Visual<br><em>storytelling</em><br>that converts.
+    </h1>
+    <p class="hero-sub">
+      Photographer, UGC creator, and social media strategist — I make brands look like somewhere people actually want to be.
+    </p>
+
+    <div class="cards">
+      <a href="photography-videos/" class="card photo">
+        <span class="card-tag">Photography + UGC</span>
+        <h2 class="card-title">Campaign &amp; Content</h2>
+        <p class="card-desc">Hotel campaigns, brand photography, UGC content, and lifestyle shoots for travel, wellness, and hospitality brands.</p>
+        <span class="card-arrow">View portfolio &rarr;</span>
+        <span class="card-accent"></span>
+      </a>
+
+      <a href="social-media/" class="card social">
+        <span class="card-tag">Social Media Management</span>
+        <h2 class="card-title">Strategy &amp; Growth</h2>
+        <p class="card-desc">Full-service social media management — content strategy, scheduling, community management, and monthly analytics.</p>
+        <span class="card-arrow">See services &rarr;</span>
+        <span class="card-accent"></span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Samantha Andrada &mdash; s.k.andrada@gmail.com
+  </footer>
+
+</body>
+</html>
