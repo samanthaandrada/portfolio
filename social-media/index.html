@@ -13,11 +13,13 @@
     /* ══════════════════════════════════════════════════════════
        LAYOUT-FIRST DRAFT — 2026-07-28
        This page is intentionally built with placeholder content.
-       Things still to swap in once real assets are ready:
+       Things still to swap in once real assets/decisions are ready:
          1. Package prices (search "$XXX")
          2. Proof section screenshots (search "SWAP:" in .sm-proof)
          3. Testimonial quote (search ".sm-testi")
          4. Real BTS video embed (search ".sm-proof-video")
+         5. Digital download links once a platform is picked
+            (search "Notify Me" in .sm-digital — swap href + label to "Buy Now")
        Everything else (copy, structure, styling) is ready to use as-is
        or edit directly.
     ══════════════════════════════════════════════════════════ */
@@ -394,51 +396,168 @@
     }
     .sm-pkg-cta:hover { gap: 10px; color: var(--jelly-bean); }
 
-    /* ── Coming soon mini-cards row ── */
-    .sm-pkg-soon-row {
+    /* ── Second-tier package row: Email / Product Launch / BTS ── */
+    .sm-addon-row {
       max-width: 1200px;
-      margin: 44px auto 0;
+      margin: 22px auto 0;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-    .sm-pkg-soon-card {
-      background: rgba(26, 24, 22, 0.03);
-      border: 1px dashed rgba(26, 24, 22, 0.18);
-      border-radius: 16px;
-      padding: 24px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      flex-wrap: wrap;
     }
-    .sm-pkg-soon-title {
+    .sm-addon-card {
+      position: relative;
+      background: var(--white);
+      border: 1px solid rgba(26, 24, 22, 0.08);
+      border-radius: 16px;
+      padding: 24px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .sm-addon-title {
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 16px;
       color: var(--charcoal);
-      margin-bottom: 4px;
     }
-    .sm-pkg-soon-desc {
+    .sm-addon-desc {
       font-size: 12px;
-      color: rgba(26,24,22,0.55);
-      max-width: 340px;
       line-height: 1.6;
+      color: rgba(26, 24, 22, 0.58);
+      flex: 1;
     }
-    .sm-pkg-soon-badge {
+    .sm-addon-cta {
       font-family: 'Syne', sans-serif;
       font-size: 9px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(26,24,22,0.4);
-      border: 1px solid rgba(26,24,22,0.18);
-      padding: 6px 14px;
-      border-radius: 999px;
-      white-space: nowrap;
+      color: var(--jelly-bean);
+      text-decoration: none;
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
     }
+    .sm-addon-cta:hover { gap: 10px; }
+    /* Locals-only badge — used on BTS, and any other in-person-only offer */
+    .sm-addon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      align-self: flex-start;
+      font-family: 'Syne', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--milan-red);
+      background: rgba(203, 27, 3, 0.08);
+      padding: 5px 10px;
+      border-radius: 999px;
+      margin-bottom: 2px;
+    }
+    .sm-addon-badge svg { width: 10px; height: 10px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+    /* ── Custom scope note — sits under the addon row ── */
+    .sm-custom-note {
+      max-width: 1200px;
+      margin: 36px auto 0;
+      text-align: center;
+      font-size: 12.5px;
+      color: rgba(26, 24, 22, 0.5);
+      line-height: 1.7;
+    }
+    .sm-custom-note a {
+      color: var(--jelly-bean);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 121, 155, 0.35);
+    }
+    .sm-custom-note a:hover { border-color: var(--jelly-bean); }
+
+    /* ─── DIGITAL PRODUCTS SECTION ───────────────────────────
+       These are self-serve downloads, distinct from the custom
+       caption/hook bank built into the Full Strategy Redo package.
+       SWAP: once a platform (Gumroad/Stan Store/Payhip/etc.) is
+       chosen, point each .sm-digital-cta href at the real product
+       link and change the label from "Notify Me" to "Buy Now".
+    ────────────────────────────────────────────────────────── */
+    .sm-digital {
+      background: var(--white);
+      padding: 80px 56px 96px;
+      border-top: 1px solid rgba(26,24,22,0.06);
+    }
+    .sm-digital-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .sm-digital-card {
+      position: relative;
+      background: #F8F6F2;
+      border-radius: 18px;
+      padding: 32px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sm-digital-icon {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .sm-digital-icon svg { width: 16px; height: 16px; stroke: var(--sidecar); stroke-width: 1.6; fill: none; }
+    .sm-digital-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      font-family: 'Syne', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--jelly-bean);
+      background: rgba(37, 121, 155, 0.1);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+    .sm-digital-title {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 19px;
+      color: var(--charcoal);
+    }
+    .sm-digital-desc {
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: rgba(26,24,22,0.6);
+      flex: 1;
+    }
+    .sm-digital-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .sm-digital-cta:hover { gap: 10px; color: var(--jelly-bean); }
 
     /* ─── PROCESS SECTION ───────────────────────────────────── */
     .sm-process {
@@ -659,7 +778,8 @@
     }
     @media (max-width: 900px) {
       .sm-pkg-grid { grid-template-columns: 1fr; }
-      .sm-pkg-soon-row { grid-template-columns: 1fr; }
+      .sm-addon-row { grid-template-columns: 1fr; }
+      .sm-digital-grid { grid-template-columns: 1fr; }
       .sm-process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; }
       .sm-process-step:nth-child(3) { border-left: none; padding-left: 0; }
       .sm-proof-grid { grid-template-columns: repeat(2, 1fr); }
@@ -711,7 +831,7 @@
     <div class="sm-hero-content">
       <span class="sm-hero-eyebrow">Social Media Management</span>
       <h1 class="sm-hero-title">Strategy you can<br><em>actually</em> use.</h1>
-      <p class="sm-hero-sub">Content packs, strategy systems, and behind-the-scenes storytelling — sized to what you need right now, not a retainer you have to justify every month.</p>
+      <p class="sm-hero-sub">From a single content package to a full 3-month strategy partnership — content, strategy, and campaigns built around what your brand actually needs.</p>
       <div class="sm-hero-ctas">
         <a href="#packages" class="sm-hero-cta-primary">See the Packages</a>
         <a href="mailto:s.k.andrada@gmail.com" class="sm-hero-cta-secondary">Work With Me</a>
@@ -729,80 +849,137 @@
     <div class="sm-section-intro">
       <span class="sm-eyebrow">The Menu</span>
       <h2 class="sm-headline">Pick your <em style="color: var(--jelly-bean); font-style: italic;">package</em>.</h2>
-      <p class="sm-subline">No retainers, no vague scopes. Just clear deliverables, sized to what you actually need right now.</p>
+      <p class="sm-subline">Clear deliverables, sized to what you actually need — from one project to a full partnership.</p>
     </div>
 
     <div class="sm-pkg-grid">
 
-      <!-- PACKAGE 01 -->
+      <!-- PACKAGE 01 — FLAGSHIP -->
       <div class="sm-pkg-card pkg-01">
-        <span class="sm-pkg-tag">Package 01</span>
-        <h3 class="sm-pkg-title">Content Batch Day</h3>
-        <p class="sm-pkg-desc">One session, a month of content. Photo and short-form video shot and edited in a single day, delivered ready to post.</p>
+        <span class="sm-pkg-tag">Flagship &mdash; 3-Month Minimum</span>
+        <h3 class="sm-pkg-title">Full-Service Social Media &amp; Strategy</h3>
+        <p class="sm-pkg-desc">The whole thing, handled. Strategy, content, and reporting for brands ready to commit to real growth, not a one-off boost. Requires a 3-month minimum commitment — real strategy needs runway to work.</p>
         <ul class="sm-pkg-includes">
-          <li>Full-day shoot</li>
-          <li>Photo + short-form video</li>
-          <li>Platform-specific edits (feed, Reels, Stories)</li>
-          <li>Ready-to-post delivery</li>
+          <li>Full account audit + strategy</li>
+          <li>Monthly content calendar &amp; creation (static, carousel, reels)</li>
+          <li>Scheduling &amp; light community management</li>
+          <li>Monthly report + strategy check-in</li>
         </ul>
         <div class="sm-pkg-footer">
-          <span class="sm-pkg-price"><span>Starting at</span>$XXX</span>
-          <a href="mailto:s.k.andrada@gmail.com?subject=Content%20Batch%20Day" class="sm-pkg-cta">Book &rarr;</a>
+          <span class="sm-pkg-price"><span>Starting at</span>$XXX/mo</span>
+          <a href="mailto:s.k.andrada@gmail.com?subject=Full-Service%20Social%20Media%20%26%20Strategy" class="sm-pkg-cta">Start the Conversation &rarr;</a>
         </div>
       </div>
 
       <!-- PACKAGE 02 -->
       <div class="sm-pkg-card pkg-02">
         <span class="sm-pkg-tag">Package 02</span>
-        <h3 class="sm-pkg-title">Strategy + Content Calendar</h3>
-        <p class="sm-pkg-desc">A one-time system, not a subscription. The thinking done right, handed off for your team to run.</p>
+        <h3 class="sm-pkg-title">Content Package &mdash; Static + Carousels</h3>
+        <p class="sm-pkg-desc">For brands who just need the content, not full management. Built from your own photos and footage, captions included. Local to Colorado Springs&ndash;Denver? Ask about swapping in an in-person shoot day instead.</p>
         <ul class="sm-pkg-includes">
-          <li>Account + competitor audit</li>
-          <li>Content pillar framework</li>
-          <li>30-day content calendar</li>
-          <li>Caption starter bank</li>
+          <li>Batch of static + carousel posts</li>
+          <li>Captions written for every post</li>
+          <li>Reels / short-form video add-on available</li>
+          <li>Built from your existing assets (or shot fresh, if local)</li>
         </ul>
         <div class="sm-pkg-footer">
           <span class="sm-pkg-price"><span>Starting at</span>$XXX</span>
-          <a href="mailto:s.k.andrada@gmail.com?subject=Strategy%20%2B%20Content%20Calendar" class="sm-pkg-cta">Get Started &rarr;</a>
+          <a href="mailto:s.k.andrada@gmail.com?subject=Content%20Package" class="sm-pkg-cta">Get Content &rarr;</a>
         </div>
       </div>
 
       <!-- PACKAGE 03 -->
       <div class="sm-pkg-card pkg-03">
         <span class="sm-pkg-tag">Package 03</span>
-        <h3 class="sm-pkg-title">Behind-the-Scenes Package</h3>
-        <p class="sm-pkg-desc">Documentary-style content of your shoot, launch, or stay — the real-time story that makes the polished stuff hit harder.</p>
+        <h3 class="sm-pkg-title">Full Strategy Redo</h3>
+        <p class="sm-pkg-desc">A complete strategy rebuild, built specifically for your brand — not a template. Handed off for your team to run.</p>
         <ul class="sm-pkg-includes">
-          <li>On-site BTS filming</li>
-          <li>Short-form edited clips</li>
-          <li>Raw + polished cuts</li>
-          <li>Fast turnaround</li>
+          <li>Full account + competitor audit</li>
+          <li>Keyword &amp; hashtag research</li>
+          <li>Custom caption bank, written for your voice</li>
+          <li>Custom hook bank, written for your voice</li>
         </ul>
         <div class="sm-pkg-footer">
           <span class="sm-pkg-price"><span>Starting at</span>$XXX</span>
-          <a href="mailto:s.k.andrada@gmail.com?subject=BTS%20Package" class="sm-pkg-cta">Add BTS &rarr;</a>
+          <a href="mailto:s.k.andrada@gmail.com?subject=Full%20Strategy%20Redo" class="sm-pkg-cta">Rebuild My Strategy &rarr;</a>
         </div>
       </div>
 
     </div>
 
-    <!-- COMING SOON — smaller packages still being scoped -->
-    <div class="sm-pkg-soon-row">
-      <div class="sm-pkg-soon-card">
-        <div>
-          <div class="sm-pkg-soon-title">Email Campaign Package</div>
-          <div class="sm-pkg-soon-desc">A written, on-brand email sequence for a launch, promo, or nurture flow.</div>
-        </div>
-        <span class="sm-pkg-soon-badge">In the works</span>
+    <!-- SECOND TIER — Email, Product Launch, and locals-only BTS -->
+    <div class="sm-addon-row">
+      <div class="sm-addon-card">
+        <div class="sm-addon-title">Email Campaign Package</div>
+        <p class="sm-addon-desc">Ongoing nurture sequences — welcome flows, newsletters, and promos, written in your voice.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=Email%20Campaign%20Package" class="sm-addon-cta">Get Started &rarr;</a>
       </div>
-      <div class="sm-pkg-soon-card">
-        <div>
-          <div class="sm-pkg-soon-title">Caption Bank</div>
-          <div class="sm-pkg-soon-desc">A month of on-brand captions, written and ready to drop into your own posting schedule.</div>
-        </div>
-        <span class="sm-pkg-soon-badge">In the works</span>
+      <div class="sm-addon-card">
+        <div class="sm-addon-title">Product Launch Campaign</div>
+        <p class="sm-addon-desc">A dedicated email arc for your next launch: pre-launch buildup, launch day, and the follow-up that actually converts.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=Product%20Launch%20Campaign" class="sm-addon-cta">Plan a Launch &rarr;</a>
       </div>
+      <div class="sm-addon-card">
+        <span class="sm-addon-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.2"/></svg>
+          Locals Only &mdash; Colorado Springs / Denver
+        </span>
+        <div class="sm-addon-title">Behind-the-Scenes Package</div>
+        <p class="sm-addon-desc">Documentary-style coverage of your shoot, launch, or stay — the real-time story that makes the polished stuff hit harder.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=BTS%20Package" class="sm-addon-cta">Add BTS &rarr;</a>
+      </div>
+    </div>
+
+    <p class="sm-custom-note">Need something that doesn't fit neatly into any of these? <a href="mailto:s.k.andrada@gmail.com?subject=Custom%20Package">Let's talk it through.</a></p>
+  </section>
+
+
+  <!-- ── DIGITAL PRODUCTS ─────────────────────────────────────
+       Self-serve downloads — distinct from the CUSTOM caption/hook
+       bank built into the Full Strategy Redo package above.
+       SWAP: once a platform is chosen (Gumroad / Stan Store / Payhip),
+       point each .sm-digital-cta at the real product link and change
+       the label from "Notify Me" to "Buy Now".
+  ─────────────────────────────────────────────────────────── -->
+  <section id="digital" class="sm-digital" aria-label="Digital downloads">
+    <div class="sm-section-intro">
+      <span class="sm-eyebrow">Grab &amp; Go</span>
+      <h2 class="sm-headline">Or skip the wait, <em style="color: var(--jelly-bean); font-style: italic;">download</em> it.</h2>
+      <p class="sm-subline">Done-for-you templates you can buy and use today. No calls, no onboarding, just plug them in.</p>
+    </div>
+
+    <div class="sm-digital-grid">
+
+      <div class="sm-digital-card">
+        <div class="sm-digital-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <span class="sm-digital-badge">Instant Download</span>
+        <h3 class="sm-digital-title">Caption Bank</h3>
+        <p class="sm-digital-desc">A set of ready-to-use captions across tones and formats, built to adapt to any brand voice.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=Notify%20Me%20-%20Caption%20Bank" class="sm-digital-cta">Notify Me &rarr;</a>
+      </div>
+
+      <div class="sm-digital-card">
+        <div class="sm-digital-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        </div>
+        <span class="sm-digital-badge">Instant Download</span>
+        <h3 class="sm-digital-title">Hook Bank</h3>
+        <p class="sm-digital-desc">Scroll-stopping opening lines and scripts for Reels, TikToks, and captions.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=Notify%20Me%20-%20Hook%20Bank" class="sm-digital-cta">Notify Me &rarr;</a>
+      </div>
+
+      <div class="sm-digital-card">
+        <div class="sm-digital-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </div>
+        <span class="sm-digital-badge">Instant Download</span>
+        <h3 class="sm-digital-title">Viral Framework</h3>
+        <p class="sm-digital-desc">The content structure behind posts that actually perform, broken down into a repeatable system.</p>
+        <a href="mailto:s.k.andrada@gmail.com?subject=Notify%20Me%20-%20Viral%20Framework" class="sm-digital-cta">Notify Me &rarr;</a>
+      </div>
+
     </div>
   </section>
 
